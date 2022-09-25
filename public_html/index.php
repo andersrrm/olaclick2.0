@@ -8,7 +8,7 @@
 
 	header('Content-type: application/json;');
 	$url = './movies.json'; // path to your JSON file
-    $start = microtime(true);       ///0.003
+    $start = time();
 	$data = file_get_contents($url); // put the contents of the file into a variable
 	$movies = json_decode($data, true);
     
@@ -22,7 +22,8 @@
             $newArray[$genre]['movies'][] = $movie;
         }
     }
-
+    $end = time();
+    print_r($end-$start);
     print_r($newArray);
 
 	/*Ïmprime contenido del Json*/
